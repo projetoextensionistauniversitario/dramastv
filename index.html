@@ -1,19 +1,88 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DramaTV</title><link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>DramaTV — Novelinhas, novelas e séries</title>
+<meta name="description" content="DramaTV — suas histórias favoritas em um só lugar.">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="top"><a class="logo" href="#">DR<span>▶</span>MASTV</a><nav><a href="#inicio">Início</a><a href="#catalogo">Catálogo</a><a href="#planos">Planos</a><a href="#perfil">Perfil</a></nav><button id="loginBtn">Entrar</button></header>
+<header class="topbar">
+  <a class="logo" href="#home">DRAM<span>▶</span>TV</a>
+  <nav>
+    <a href="#home">Início</a>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#favoritos">Favoritos</a>
+  </nav>
+  <button class="btn btn-outline" id="loginBtn">Entrar</button>
+</header>
+
 <main>
-<section id="inicio" class="hero"><div><small>DRAMATV</small><h1>Suas histórias<br>favoritas em um só lugar.</h1><p>Novelinhas, novelas, doramas e séries.</p><a class="primary" href="#catalogo">Ver catálogo</a></div></section>
-<section class="benefits"><div><b>🎬</b>Novelinhas</div><div><b>🔥</b>Novidades</div><div><b>♡</b>Favoritos</div><div><b>▣</b>Assista onde quiser</div></section>
-<section id="catalogo" class="wrap"><div class="titleRow"><h2>Catálogo</h2><input id="search" placeholder="Buscar..." oninput="render()"></div><div class="chips"><button class="active" data-cat="Todos">Todos</button><button data-cat="Novelinhas">Novelinhas</button><button data-cat="Novelas">Novelas</button><button data-cat="Doramas">Doramas</button><button data-cat="Filmes">Filmes</button></div><div id="catalog" class="cards"></div></section>
-<section id="planos" class="wrap"><h2>Planos</h2><div class="plans"><article><h3>Mensal</h3><strong>R$ 19,90</strong><p>Acesso ao catálogo e episódios.</p><button class="primary" onclick="checkout('Mensal')">Assinar</button></article><article class="featured"><h3>Trimestral</h3><strong>R$ 49,90</strong><p>Acesso ao catálogo e conteúdo exclusivo.</p><button class="primary" onclick="checkout('Trimestral')">Assinar</button></article><article><h3>Anual</h3><strong>R$ 149,90</strong><p>Acesso ao catálogo e novidades.</p><button class="primary" onclick="checkout('Anual')">Assinar</button></article></div></section>
-<section id="perfil" class="wrap"><h2>Meu perfil</h2><div id="profile" class="profile">Entre para acessar seus favoritos e histórico.</div></section>
+<section id="home" class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="eyebrow">DRAMATV</div>
+    <h1>Suas histórias favoritas em um só lugar.</h1>
+    <p>Novelinhas, novelas, dramas e séries.</p>
+    <a class="btn btn-primary" href="#catalogo">Ver catálogo</a>
+  </div>
+</section>
+
+<section class="benefits">
+  <div><b>🎬</b><span>Novelinhas</span></div>
+  <div><b>🔥</b><span>Novidades</span></div>
+  <div><b>♡</b><span>Favoritos</span></div>
+  <div><b>▣</b><span>Assista onde quiser</span></div>
+</section>
+
+<section id="catalogo" class="section">
+  <div class="section-head">
+    <div><h2>Catálogo</h2><p>Escolha uma história para começar.</p></div>
+    <div class="search"><span>⌕</span><input id="search" placeholder="Buscar..." autocomplete="off"></div>
+  </div>
+  <div class="chips" id="chips">
+    <button class="chip active" data-cat="Todos">Todos</button>
+    <button class="chip" data-cat="Novelinhas">Novelinhas</button>
+    <button class="chip" data-cat="Drama">Drama</button>
+    <button class="chip" data-cat="Romance">Romance</button>
+    <button class="chip" data-cat="Mistério">Mistério</button>
+  </div>
+  <div id="catalog" class="grid"></div>
+</section>
+
+<section id="favoritos" class="section">
+  <div class="section-head"><div><h2>Seus favoritos</h2><p>As histórias que você salvou.</p></div></div>
+  <div id="favoritesGrid" class="grid"></div>
+  <div id="emptyFav" class="empty">Você ainda não adicionou favoritos. 💜</div>
+</section>
+
+<section class="plans section">
+  <div><h2>Em breve no DramaTV</h2><p>Conta, histórico, favoritos sincronizados e acesso aos conteúdos que você tiver autorização para distribuir.</p></div>
+  <button class="btn btn-outline" id="profileBtn">Meu perfil</button>
+</section>
 </main>
-<footer>DRAMASTV • Plataforma de entretenimento</footer>
-<div id="modal" class="modal"><div class="modalBox"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div>
+
+<footer><strong>DRAMATV</strong><span>Entretenimento em um só lugar.</span></footer>
+
+<div class="modal" id="detailModal" aria-hidden="true">
+ <div class="modal-card">
+  <button class="close" data-close>×</button>
+  <div id="detail"></div>
+ </div>
+</div>
+
+<div class="modal" id="loginModal" aria-hidden="true">
+ <div class="modal-card small">
+  <button class="close" data-close>×</button>
+  <h2>Entrar no DramaTV</h2>
+  <p class="muted">Nesta versão, o login é demonstrativo. O acesso real será conectado ao banco de dados na próxima etapa.</p>
+  <label>E-mail<input type="email" id="email" placeholder="seu@email.com"></label>
+  <label>Senha<input type="password" placeholder="••••••••"></label>
+  <button class="btn btn-primary full" id="demoLogin">Entrar</button>
+ </div>
+</div>
+
 <script src="app.js"></script>
-</body></html>
+</body>
+</html>

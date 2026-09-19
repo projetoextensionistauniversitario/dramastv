@@ -1,22 +1,18 @@
-DRAMATV — STARTER PARA COLOCAR ONLINE
+# DramaTV v3 — frontend publicado
 
-1) Requisitos: Node.js 18+.
-2) Entre nesta pasta no terminal.
-3) Rode: npm install
-4) Rode: npm start
-5) Abra: http://localhost:3000
+Esta versão é um frontend estático, otimizado para celular, com:
+- catálogo e busca;
+- filtros por categoria;
+- favoritos salvos no navegador;
+- página/modal de cada novelinha;
+- lista de episódios demonstrativa;
+- login demonstrativo;
+- layout responsivo.
 
-O frontend já está pronto para receber catálogo, busca, planos e login.
-O arquivo supabase/schema.sql cria a base inicial para:
-- usuários/perfis
-- títulos
-- episódios
-- favoritos
-- assinaturas
+## Publicação no GitHub Pages
+Substitua os arquivos do repositório `dramastv` pelos arquivos desta pasta e faça um commit na branch `main`.
 
-IMPORTANTE:
-Este pacote NÃO contém credenciais, banco real, gateway de pagamento ou vídeos protegidos.
-Para produção, conecte Supabase (Auth + Database + Storage) e um gateway de pagamento
-compatível com Pix. Não coloque chaves secretas no JavaScript do navegador.
+## Próxima etapa para produção
+Para login real, banco de dados, upload de capas, vídeos privados, assinaturas/Pix e painel administrativo conectado, será necessário integrar serviços de backend e configurar variáveis secretas no servidor. Não coloque chaves secretas no JavaScript do navegador.
 
-Também é necessário usar somente vídeos/capas para os quais você tenha autorização de distribuição.
+Publique apenas conteúdos para os quais você tenha autorização/licença de distribuição.
