@@ -1,18 +1,12 @@
-# DramaTV v3 — frontend publicado
+# DramaTV v4
 
-Esta versão é um frontend estático, otimizado para celular, com:
-- catálogo e busca;
-- filtros por categoria;
-- favoritos salvos no navegador;
-- página/modal de cada novelinha;
-- lista de episódios demonstrativa;
-- login demonstrativo;
-- layout responsivo.
+Frontend estático do DramaTV com as duas primeiras novelinhas do catálogo:
+
+1. A VÍPERA DONNA — A Justiça da Madrasta na Máfia.
+2. ENTRE CHAMAS E ESCAMAS.
+
+Inclui capas reais, busca, filtros, favoritos salvos no navegador e página/modal de detalhes com episódios demonstrativos.
 
 ## Publicação no GitHub Pages
-Substitua os arquivos do repositório `dramastv` pelos arquivos desta pasta e faça um commit na branch `main`.
 
-## Próxima etapa para produção
-Para login real, banco de dados, upload de capas, vídeos privados, assinaturas/Pix e painel administrativo conectado, será necessário integrar serviços de backend e configurar variáveis secretas no servidor. Não coloque chaves secretas no JavaScript do navegador.
-
-Publique apenas conteúdos para os quais você tenha autorização/licença de distribuição.
+Envie `index.html`, `app.js`, `styles.css` e a pasta `assets/` para a raiz do repositório. Depois, em Settings > Pages, selecione `main` e `/ (root)`.
